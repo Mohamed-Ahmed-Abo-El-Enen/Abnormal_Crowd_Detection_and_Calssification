@@ -1,0 +1,52 @@
+{
+    "dataset": {
+        "Arrest030_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Arrest\\Arrest030_x264.mp4",
+            "pretrained_path": "app/static/predictions/Arrest030_x264.mp4",
+            "file_type": "Abnormal",
+            "file_class": "UnSpecified yet"
+        },
+        "Explosion008_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Explosion\\Explosion008_x264.mp4",
+            "pretrained_path": "app/static/predictions/Explosion008_x264.mp4",
+            "file_type": "Abnormal",
+            "file_class": "UnSpecified yet"
+        },
+        "Fighting003_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Fighting\\Fighting003_x264.mp4",
+            "pretrained_path": "app/static/predictions/Fighting003_x264.mp4",
+            "file_type": "Abnormal",
+            "file_class": "UnSpecified yet"
+        },
+        "Normal_Videos_019_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Normal\\Normal_Videos_019_x264.mp4",
+            "pretrained_path": "app/static/predictions/Normal_Videos_019_x264.mp4",
+            "file_type": "Normal",
+            "file_class": "Normal"
+        },
+        "Normal_Videos_310_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Normal\\Normal_Videos_310_x264.mp4",
+            "pretrained_path": "app/static/predictions/Normal_Videos_310_x264.mp4",
+            "file_type": "Normal",
+            "file_class": "Normal"
+        },
+        "Normal_Videos_641_x264": {
+            "dataset_name": "UCF",
+            "dataset_annotated": true,
+            "file_path": "Dataset\\UCF\\Normal\\Normal_Videos_641_x264.mp4",
+            "pretrained_path": "app/static/predictions/Normal_Videos_641_x264.mp4",
+            "file_type": "Normal",
+            "file_class": "Normal"
+        }
+    }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="..\static\css\style.css">
+  
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+.wrapper .sidebar{
+	background: rgb(5, 68, 104);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+}
+
+.wrapper .sidebar .profile{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.wrapper .sidebar .profile img{
+	display: block;
+	width: 100px;
+	height: 100px;
+    border-radius: 50%;
+	margin: 0 auto;
+}
+
+.wrapper .sidebar .profile h3{
+	color: #ffffff;
+	margin: 10px 0 5px;
+}
+
+.wrapper .sidebar .profile p{
+	color: rgb(206, 240, 253);
+	font-size: 14px;
+}
+
+.wrapper .sidebar ul li div{
+	display: block;
+	padding: 13px 30px;
+	border-bottom: 1px solid #10558d;
+	color: rgb(241, 237, 237);
+	font-size: 16px;
+	position: relative;
+}
+
+.wrapper .sidebar ul li div .icon{
+	color: #dee4ec;
+	width: 30px;
+	display: inline-block;
+}
+
+.wrapper .sidebar ul li div:hover,
+.wrapper .sidebar ul li div.active{
+	color: #0c7db1;
+
+	background:white;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li,
+.wrapper .sidebar ul li div:hover .icon,
+.wrapper .sidebar ul li div.active .icon{
+	color: #0c7db1;
+}
+
+.wrapper .sidebar ul li div:hover:before,
+.wrapper .sidebar ul li div.active:before{
+	display: block;
+}
+
+.wrapper .section{
+	width: calc(100% - 225px);
+	margin-left: 225px;
+	transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar{
+	background: rgb(7, 105, 185);
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding: 0 30px;
+
+}
+
+.wrapper .section .top_navbar .hamburger div{
+	font-size: 28px;
+	color: #f4fbff;
+}
+
+.wrapper .section .top_navbar .hamburger div:hover{
+	color: #a2ecff;
+}
+
+body.active .wrapper .sidebar{
+	left: -225px;
+}
+
+body.active .wrapper .section{
+	margin-left: 0;
+	width: 100%;
+}
+
+.video_ul
+    {
+        height: 65%;
+        overflow-y:scroll;
+    }
+
+
+::-webkit-scrollbar {
+  width: 15px;
+  hight: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8285A6; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #A098AE; 
+}
+
+
+    </style>
+</head>
+<body style = "background-image: linear-gradient(to bottom right,#FFFFFF, #FFFFFF);">
+    <div class="wrapper" >
+        <div class="section" >
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <div href="#">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="login" >
+                 <div style="border-width:2px;border-style:solid; border-color:#000000; padding:10px;width:512px">
+                     <div><h4 style="float: left;color: #000000;">Dataset : </h4> <h4 style="float: left;color: #000000;">{{video_dataset}}</h4></div>
+					 <br><br>
+                     <div><h4 style="float: left;color: #000000;">Type : </h4> <h4 style="float: left;color: #000000;">{{video_type}}</h4></div>
+					 <br>
+                 </div>
+                <video controls class="video-size">
+                    <source src="static/sample/{{video_name}}" type="video/mp4">
+                </video>
+                <br><br>
+                <button type="button" onclick="window.location.href='{{url_for('Predict')}}';" class="btn btn-primary btn-block btn-large button-62" >Predict</button>
+                <br><br>
+                <div disabled="{{disable_result}}}" style="visibility: {{result_visibility}}">
+                    <video class="video-size" controls>
+                        <source src="static/sample/{{anomaly_detection_res}}" type="video/mp4">
+                    </video>
+                    <div><h4 style="float: left;color: #000000;">Predicted Type : </h4> <h4 style="float: left;color: #000000;">{{predicted_video_type}}</h6></div>
+                    <br>
+                    <div><h4 style="float: left;color: #000000;">Predicted Class : </h4> <h4 style="float: left;color: #000000;">{{predicted_video_class}}</h6></div>
+					<br>
+					<br>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="profile">
+                <img src="static/images/imgtitle.jpg" alt="profile_picture">
+                <h3>Abnormal Detection</h3>
+                <p>ITI GP</p>
+            </div>
+            <ul class="video_ul">
+                <li class="video_il">
+                    {% for key in videos_info.keys() %}
+                    <div type="button" onclick="window.location.href='{{url_for('Getvideo', video_name=key)}}';">
+                        <span class="icon"><i class="fas fa-video"></i></span>
+                        <span class="item">{{key}}</span>
+                    </div>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+  <script>
+       var hamburger = document.querySelector(".hamburger");
+	hamburger.addEventListener("click", function(){
+		document.querySelector("body").classList.toggle("active");})
+  </script>
+</body>
+</html>
